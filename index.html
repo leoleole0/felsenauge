@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
 
 </head>
 
@@ -79,6 +84,7 @@
   function hide(e) {
     e.preventDefault();
     document.getElementById("all").classList.add("hidden");
+    document.getElementById("formwrap").classList.add("sichtbar");
   }
 
   // FORM allgemein
@@ -101,7 +107,7 @@
 
 form.addEventListener('submit', function() {
   setTimeout(function() {
-    document.getElementById('formwrap').classList.add('hidden')
+    document.getElementById('formwrap').classList.remove('sichtbar')
     document.getElementById('weiter').classList.add('sichtbar')
   }, 500)
 })
