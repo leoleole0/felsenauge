@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="main.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <form action="https://formspree.io/f/xvzjvkkd" method="POST">
+
+  <input type="hidden" name="_next" value="https://leoleoleo.neocities.org/steinauge/">
+
+  <textarea name="message" placeholder="Ein Satz dazu..."></textarea>
+  <button type="submit">💧 Wasser geben</button>
+
+</form>
+
+<!--
+<div id="formwrap">
+  <div>
+    <p style="text-align: center; color: white;">What did you observe here?<br/>Is something missing?<br/>What are you doing?<br/>How do you feel?</p>
+  </div>
+  <form id="form">
+    <textarea name="message" placeholder="tell something."></textarea>
+    <button type="submit">tell the world</button>
+  </form>
+</div>
+-->
+
+<div id="all">
+  <video id="fullscreen-video" loop muted autoplay playsinline>
+    <source src="https://file.garden/aekUkNvojSCYQ79I/eye1.mp4"  type="video/mp4" />
+  </video>
+
+  <p id="text1">
+  the eye notices you.
+  </p>
+
+  <p id="text2">
+  the eye recognizes you.
+  </p>
+
+  <p id="text3">
+  the eye recognizes everyone.
+  </p>
+
+  <p id="text4"><a onclick="hide(event)">
+  tell the eye something<br/><span style="color: red;">you</span> noticed here.
+</a>
+  </p>
+</div>
+
+
+
+
+
+
+<script>
+  function hide(e) {
+    e.preventDefault();
+    document.getElementById("all").classList.add("hidden");
+  }
+
+
+  const form = document.getElementById('form')
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault() // verhindert das normale Absenden
+
+  await fetch('https://formspree.io/f/xvzjvkkd', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+
+  // hier kannst du machen was du willst — z.B. nichts, oder:
+  form.reset() // Textfeld leeren
+})
+</script>
+
+</body>
