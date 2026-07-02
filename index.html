@@ -14,27 +14,12 @@
 
 <body>
 
-<!--  <form action="https://formspree.io/f/xvzjvkkd" method="POST">
-
-  <input type="hidden" name="_next" value="https://leoleoleo.neocities.org/steinauge/">
-
-  <textarea name="message" placeholder="Ein Satz dazu..."></textarea>
-  <button type="submit">💧 Wasser geben</button>
-
-</form> -->
 
 
-<div id="formwrap">
-  <div>
-    <p style="text-align: center; color: white;">What did you observe here?<br/>Is something missing?<br/>What are you doing?<br/>How do you feel?</p>
-  </div>
-  <form id="form">
-    <textarea name="message" placeholder="tell something."></textarea>
-    <button type="submit">tell the world</button>
-  </form>
-</div>
 
+<!-- video etc intro -->
 
+<!--
 <div id="all">
   <video id="fullscreen-video" loop muted autoplay playsinline>
     <source src="https://file.garden/aekUkNvojSCYQ79I/eye1.mp4"  type="video/mp4" />
@@ -58,22 +43,50 @@
   </p>
 </div>
 
+-->
+
+
+<!-- FORM -->
+
+<div id="formwrap">
+  <div>
+    <p style="text-align: center; color: white;">What are you observing here?<br/>Is something missing?<br/>What are you doing?<br/>How do you feel?</p>
+  </div>
+  <form id="form">
+    <textarea name="message" placeholder=""></textarea>
+    <div id="buttonwrap">
+    <button type="submit">tell the world</button>
+    </div>
+  </form>
+</div>
+
+<!-- EYE -->
+
+<div id="weiter">
+  <a href="observations.html"><img src="img/eye.png"></a>
+</div>
+
+
 
 
 
 
 
 <script>
+
+  // hide den anfangsstuff
+
   function hide(e) {
     e.preventDefault();
     document.getElementById("all").classList.add("hidden");
   }
 
+  // FORM allgemein
 
   const form = document.getElementById('form')
 
-form.addEventListener('submit', async function(e) {
-  e.preventDefault() // verhindert das normale Absenden
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault()
 
   await fetch('https://formspree.io/f/xvzjvkkd', {
     method: 'POST',
@@ -81,9 +94,25 @@ form.addEventListener('submit', async function(e) {
     headers: { 'Accept': 'application/json' }
   })
 
-  // hier kannst du machen was du willst — z.B. nichts, oder:
-  form.reset() // Textfeld leeren
+  form.reset()
 })
+
+// FOrm ausblenden
+
+form.addEventListener('submit', function() {
+  setTimeout(function() {
+    document.getElementById('formwrap').classList.add('hidden')
+    document.getElementById('weiter').classList.add('sichtbar')
+  }, 500)
+})
+
+// zu den comments
+
+  function comments() {
+    document.getElementById('weiter').classList.remove('sichtbar')
+  }
+
+
 </script>
 
 </body>
